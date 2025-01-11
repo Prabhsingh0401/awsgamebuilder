@@ -1,0 +1,63 @@
+html, body, ul, li {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+h1{
+  color: aliceblue;
+  position: sticky;
+}
+
+canvas {
+  display: absolute;
+  margin: 0 auto;
+  background-color: blue;
+}
+
+p {
+  text-align: center;
+}
+
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+.info {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.dialog-box {
+  position: fixed; /* Fix the position to the viewport */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset to perfectly center */
+  text-align: center;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.8); 
+  color: #fff; 
+  font-family: 'Press Start 2P', cursive; 
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid #ffd700; 
+  animation: fadeInOut 1s linear;
+  max-width: 90%; /* Adjust for smaller screens */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000; 
+}
+
+@media screen and (max-width: 768px) {
+  .dialog-box {
+    font-size: 18px; /* Reduce font size on smaller screens */
+  }
+}
+

@@ -1,0 +1,297 @@
+.main{
+    font-family:'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(90deg, #ff6363, #ffa931);
+    padding:0;
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  
+  .container{
+    background-color: #fff1c1;
+    border-radius:20px;
+    width:150%;
+    width: 1300px;
+    padding: 20px;
+    height:510px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 5px solid #333;
+  }
+  @media screen and (max-width:768px){
+    .container{
+        width:80%;
+        height:870px;
+        margin-top: 20px;
+    }
+  }
+  .rules-section,.input-wrapper{
+    width:50%;
+  }
+ 
+  .rules-section{
+    padding-left: 90px; 
+  }
+  .input-wrapper{
+    margin-left: 130px;
+  }
+  .rulesgame{
+    font-size: 29px;
+    margin-top: 32px;
+    font-weight: bolder;
+  }
+  .rules{
+    font-size: 25px;
+  }
+  .quiz-title{
+    font-size:40px;
+    color: #ffe500;
+    text-shadow: 2px 2px #000;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .welcome{
+    font-size: 30px;
+    color: #000;
+    margin-bottom: 27px;
+  }
+ 
+  .option-button{
+    background-color:  #333;
+    color: #fff;
+    border: 2px solid #ffe500;
+    border-radius: 10px;
+    padding: 20px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 2px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.3s;
+    width: 45%;
+    font-size: 25px;
+    font-weight: 700;
+    margin: 20px;
+  }
+  
+  button:hover {
+    background-color: #ffe500;
+    color: #000;
+    transform: scale(1.1);
+  }
+  
+  button.selected {
+    background-color:#ffcc00;
+    color: white;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Restart Button */
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Decorative Question Mark */
+  .container::after {
+    font-size: 50px;
+    color: #ffe500;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-shadow: 2px 2px #000;
+  }
+  .timer-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+  .vertical-line {
+    width: 1px; /* The thickness of the line */
+    height: 350px; /* The length of the line */
+    background-color: black; /* Color of the line */
+  }
+  
+  .timer-progress {
+    height: 100%;
+    background-color: #ffcc00;
+    transition: width 1s linear;
+  }
+  .timer-text{
+    font-size: 25px;
+  }
+  .name-input {
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+  }
+  
+  
+  /* Ensures each input occupies a full line */
+  .player-name-input,
+  .player-age-input {
+    width: 100%; /* Makes each input take the full width of its container */
+    max-width: 300px; /* Limits the width to a maximum of 300px */
+    padding: 12px;
+    border: 2px solid #007bff;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    display: block; /* Ensures they are block-level elements */
+    margin-bottom: 20px; /* Adds space between the two inputs */
+  }
+  
+  .player-name-input {
+    margin-bottom: 20px; /* Adds space between the Name and Age inputs */
+  }
+  
+  
+  
+  .quizdetailssection{
+    display:flex;
+  }
+  
+  .player-name-input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+  }
+  .player-age-input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+  }
+  .information{
+    font-size: 20px;
+  }
+  
+  .start-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    width: 60%;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 12px;
+  }
+  
+  .start-button:disabled {
+    background-color: #3f7bc4;
+    cursor: not-allowed;
+  }
+  
+  .start-button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  /* Leaderboard section styling */
+  .score-section{
+    text-align: center;
+  }
+  .score-section .congo {
+    font-size: 3rem;
+    color: #2e3a59;
+    margin-bottom: 10px;
+    margin-top: 60px;
+  }
+  
+  .score-section p {
+    font-size: 2rem;
+    color: #444;
+    margin: 10px 0;
+  }
+  
+  .retry-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 25px 80px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .retry-button:hover {
+    background-color: #218838;
+  }
+  @media screen and (max-width:768px) {
+    .main{
+        width: 100vw;
+        height:300vh;
+        justify-content: center;
+        align-items: start;
+    }
+    .quizdetailssection{
+        display: inline-block;
+    }
+    .input-wrapper{
+        margin-left: 10px;
+    }
+    .rules-section{
+        padding-left:10px;
+        margin-top: 12px;
+    }
+    .rulesgame{
+        font-size: 25px;
+        margin-top: 1px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .rules{
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .rules-section,.input-wrapper{
+        width:100%;
+    }
+    .welcome{
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .name-input{
+        padding:10px;
+    }
+    .start-button {
+        width: 100%;
+        padding: 12px;
+    }
+    .player-name-input,
+    .player-age-input{
+    width:90%;
+  }
+  .vertical-line{
+    display: none;
+  }
+  .information{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+  }
+  .score-section p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: 14px;
+  }
+  .option-button{
+    width: 75%;
+  }
+  .score-section .congo{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+  }
+  .question{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .timer-text{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  } 
