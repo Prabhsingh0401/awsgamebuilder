@@ -1,0 +1,51 @@
+.Home{
+
+
+
+    .ParentDiv{
+
+        display: flex;
+        position: absolute;
+        width: 120vw;
+        margin-left: -8vw;
+
+        .child1 {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(../../assets/SpinTheWheel.png);
+            background-position: center;
+            background-size: cover;
+            transition: transform 0.3s ease; // Smooth transition for the scaling effect
+          
+            &:hover {
+              transform: scale(1.05); // Slightly enlarge the div on hover
+            }
+          }
+
+        .child2{
+            width: 100vw;      
+            height: 100vh;     
+            background-image: url(../../assets/Mario.png);
+            background-position: center;
+            background-size: cover;
+            transition: transform 0.3s ease; // Smooth transition for the scaling effect
+          
+            &:hover {
+              transform: scale(1.05); // Slightly enlarge the div on hover
+            } 
+            }
+
+        .child3{
+            width: 100vw;      
+            height: 100vh;     
+            background-image: url(../../assets/quiz.png);
+            background-position: center;
+            background-size: cover;
+            transition: transform 0.3s ease; // Smooth transition for the scaling effect
+          
+            &:hover {
+              transform: scale(1.05); // Slightly enlarge the div on hover
+            } 
+        }
+    }
+}
