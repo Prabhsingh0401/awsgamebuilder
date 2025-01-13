@@ -8,9 +8,9 @@ app.use(cors()); // Allow requests from your React app
 
 // Configure AWS
 AWS.config.update({
-  region: 'Region', // Change to your DynamoDB region
-  accessKeyId: 'AccessKey', // Replace with your access key
-  secretAccessKey: 'SecretKey', // Replace with your secret key
+  region: '', // Change to your DynamoDB region
+  accessKeyId: '', // Replace with your access key
+  secretAccessKey: '', // Replace with your secret key
 });
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();

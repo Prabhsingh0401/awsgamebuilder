@@ -37,6 +37,9 @@
     top: 0;
     left: 0;
     pointer-events: none;
+    box-shadow: 0 0 20px 10px rgba(255, 255, 0, 0.8); 
+    background: rgba(255, 255, 0, 0.6);
+    z-index: -1; 
   }
 
   
@@ -107,6 +110,8 @@
   
   .spin-button:hover {
     background-color: #45a049;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.8); /* Vibrant hover effect */
   }
   
   .spin-button.disabled {
@@ -172,19 +177,28 @@
   .info-description h3, .info-key-points h3, .info-importance h3 {
     color: #FFD700;
     margin-bottom: 0.5rem;
+    font-family: 'Press Start 2P', cursive;
   }
 
   .info-key-points ul {
     list-style-type: none;
     padding-left: 0;
   }
-
+  .content-details{
+    font-family: 'Press Start 2P', cursive;
+  }
   .info-key-points li {
     padding: 0.5rem 0;
     position: relative;
     padding-left: 1.5rem;
   }
-
+  .selected-content{
+    font-family: 'Press Start 2P', cursive;
+  }
+  .content-realted{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+  }
   .info-key-points li:before {
     content: "•";
     color: #FFD700;

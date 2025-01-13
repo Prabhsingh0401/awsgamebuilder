@@ -1,19 +1,46 @@
 import React, { useState, useRef } from "react";
 import "./Spinthewheel.css";
 import wheelData from '../../data/wheeldata.json'
-
+ 
 const SpinningWheel = () => {
   const [rotation, setRotation] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null); 
   const wheelRef = useRef(null);
+  const audioRef = useRef(null); // Add audio reference
 
   const segments = wheelData.segments;
+
+  // Create audio element when component mounts
+  React.useEffect(() => {
+    audioRef.current=new Audio('../../../public/sounds/spin-sound.mp4') // Changed to MP4
+    
+    // Optional: Preload the audio
+    audioRef.current.preload = 'auto';
+    
+    // Cleanup on component unmount
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
 
   const spinWheel = () => {
     if (!isSpinning) {
       setIsSpinning(true);
       setSelectedOption(null); 
+
+      // Play the MP4 audio with error handling and replay preparation
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0; // Reset audio to start
+        audioRef.current.play().catch(error => {
+          console.error("Audio play error:", error);
+          // Handle any autoplay restrictions or errors here
+        });
+      }
+
       const minSpins = 5;
       const extraSpins = Math.random() * 5;
       const totalSpins = minSpins + extraSpins;
@@ -31,8 +58,13 @@ const SpinningWheel = () => {
         const selectedIndex = Math.floor(adjustedRotation / segmentAngle);
         setSelectedOption(segments[selectedIndex]);
         setIsSpinning(false);
+        
+        // Optional: Stop audio when spin completes
+        if (audioRef.current) {
+          audioRef.current.pause();
+          audioRef.current.currentTime = 0;
+        }
       }, 5000);
-      
     }
   };
 
@@ -135,21 +167,21 @@ const SpinningWheel = () => {
           <div className="topic-information">
             <div className="info-description">
               <h3>Description</h3>
-              <p>{selectedOption.info.description}</p>
+              <p className="content-details">{selectedOption.info.description}</p>
             </div>
             
             <div className="info-key-points">
               <h3>Key Points</h3>
               <ul>
                 {selectedOption.info.keyPoints.map((point, index) => (
-                  <li key={index}>{point}</li>
+                  <li className='content-realted' key={index}>{point}</li>
                 ))}
               </ul>
             </div>
             
             <div className="info-importance">
               <h3>Importance</h3>
-              <p>{selectedOption.info.importance}</p>
+              <p className="selected-content">{selectedOption.info.importance}</p>
             </div>
           </div>
         </div>
@@ -158,4 +190,5 @@ const SpinningWheel = () => {
     </div>
   );
 };
+
 export default SpinningWheel;
