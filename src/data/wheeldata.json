@@ -1,128 +1,127 @@
 {
-    "segments": [
-      {
-        "title": "Fundamental Rights",
-        "color": "#FF69B4",
-        "info": {
-          "description": "Fundamental Rights are the basic human rights enshrined in the Constitution of India that guarantee civil liberties.",
-          "keyPoints": [
-            "Right to Equality (Articles 14-18)",
-            "Right to Freedom (Articles 19-22)",
-            "Right against Exploitation (Articles 23-24)",
-            "Right to Freedom of Religion (Articles 25-28)",
-            "Cultural and Educational Rights (Articles 29-30)",
-            "Right to Constitutional Remedies (Article 32)"
-          ],
-          "importance": "These rights are essential for the all-round development of individuals and are protected by the Supreme Court."
-        }
-      },
-      {
-        "title": "Directive Principles",
-        "color": "#FF4500",
-        "info": {
-          "description": "Directive Principles of State Policy are guidelines to the central and state governments for establishing a just society.",
-          "keyPoints": [
-            "Social and Economic Justice",
-            "Equal pay for equal work",
-            "Protection of environment and wildlife",
-            "Separation of judiciary from executive",
-            "Promotion of international peace",
-            "Uniform civil code"
-          ],
-          "importance": "Though not enforceable by law, these principles are fundamental in governance and law-making."
-        }
-      },
-      {
-        "title": "Preamble",
-        "color": "#FFA500",
-        "info": {
-          "description": "The Preamble is an introductory statement that spells out the guiding principles of the Constitution.",
-          "keyPoints": [
-            "Sovereign, Socialist, Secular, Democratic Republic",
-            "Justice: Social, Economic, and Political",
-            "Liberty of thought, expression, belief, faith and worship",
-            "Equality of status and opportunity",
-            "Fraternity assuring dignity of individual and unity of nation"
-          ],
-          "importance": "It serves as a key to understanding the Constitution and its philosophical foundation."
-        }
-      },
-      {
-        "title": "Federal Structure",
-        "color": "#90EE90",
-        "info": {
-          "description": "India's federal structure divides power between the Centre and States.",
-          "keyPoints": [
-            "Division of powers between Centre and States",
-            "Three lists: Union, State, and Concurrent",
-            "Financial relations between Centre and States",
-            "Inter-state relations",
-            "Emergency provisions"
-          ],
-          "importance": "Ensures balanced governance and regional autonomy while maintaining national unity."
-        }
-      },
-      {
-        "title": "Constitutional Bodies",
-        "color": "#FFFFFF",
-        "info": {
-          "description": "Constitutional bodies are independent entities established by the Constitution for specific functions.",
-          "keyPoints": [
-            "Election Commission of India",
-            "Union Public Service Commission",
-            "State Public Service Commissions",
-            "Comptroller and Auditor General",
-            "Finance Commission",
-            "National Commissions"
-          ],
-          "importance": "These bodies ensure fair and efficient functioning of various governmental processes."
-        }
-      },
-      {
-        "title": "Amendment Process",
-        "color": "#32CD32",
-        "info": {
-          "description": "The Constitution provides for its amendment to adapt to changing needs while preserving its basic structure.",
-          "keyPoints": [
-            "Article 368 deals with the amendment process",
-            "Three types of amendments",
-            "Simple majority",
-            "Special majority",
-            "Special majority with state ratification"
-          ],
-          "importance": "Ensures the Constitution remains relevant while protecting its core principles."
-        }
-      },
-      {
-        "title": "Citizenship",
-        "color": "#9370DB",
-        "info": {
-          "description": "Citizenship defines the relationship between an individual and the state.",
-          "keyPoints": [
-            "Acquisition of citizenship",
-            "Methods of acquiring citizenship",
-            "Single citizenship concept",
-            "Rights and duties of citizens",
-            "Provisions for NRIs and OCIs"
-          ],
-          "importance": "Determines who can claim constitutional rights and protection under Indian law."
-        }
-      },
-      {
-        "title": "Emergency Provisions",
-        "color": "#00BFFF",
-        "info": {
-          "description": "Emergency provisions allow the government to handle exceptional situations effectively.",
-          "keyPoints": [
-            "National Emergency (Article 352)",
-            "State Emergency (Article 356)",
-            "Financial Emergency (Article 360)",
-            "Effects of emergency",
-            "Safeguards against misuse"
-          ],
-          "importance": "Provides mechanism to deal with extraordinary situations while protecting democratic values."
-        }
+  "segments": [
+    {
+      "title": "Fundamental Rights",
+      "color": "#D4AF37", 
+      "info": {
+        "description": "Fundamental Rights are the basic human rights enshrined in the Constitution of India that guarantee civil liberties.",
+        "keyPoints": [
+          "Right to Equality (Articles 14-18)",
+          "Right to Freedom (Articles 19-22)",
+          "Right against Exploitation (Articles 23-24)",
+          "Right to Freedom of Religion (Articles 25-28)",
+          "Cultural and Educational Rights (Articles 29-30)",
+          "Right to Constitutional Remedies (Article 32)"
+        ],
+        "importance": "These rights are essential for the all-round development of individuals and are protected by the Supreme Court."
       }
-    ]
-  }
-  
+    },
+    {
+      "title": "Directive Principles",
+      "color": "#C0C0C0", 
+      "info": {
+        "description": "Directive Principles of State Policy are guidelines to the central and state governments for establishing a just society.",
+        "keyPoints": [
+          "Social and Economic Justice",
+          "Equal pay for equal work",
+          "Protection of environment and wildlife",
+          "Separation of judiciary from executive",
+          "Promotion of international peace",
+          "Uniform civil code"
+        ],
+        "importance": "Though not enforceable by law, these principles are fundamental in governance and law-making."
+      }
+    },
+    {
+      "title": "Preamble",
+      "color": "#B0E0E6", 
+      "info": {
+        "description": "The Preamble is an introductory statement that spells out the guiding principles of the Constitution.",
+        "keyPoints": [
+          "Sovereign, Socialist, Secular, Democratic Republic",
+          "Justice: Social, Economic, and Political",
+          "Liberty of thought, expression, belief, faith and worship",
+          "Equality of status and opportunity",
+          "Fraternity assuring dignity of individual and unity of nation"
+        ],
+        "importance": "It serves as a key to understanding the Constitution and its philosophical foundation."
+      }
+    },
+    {
+      "title": "Federal Structure",
+      "color": "#FFD700", 
+      "info": {
+        "description": "India's federal structure divides power between the Centre and States.",
+        "keyPoints": [
+          "Division of powers between Centre and States",
+          "Three lists: Union, State, and Concurrent",
+          "Financial relations between Centre and States",
+          "Inter-state relations",
+          "Emergency provisions"
+        ],
+        "importance": "Ensures balanced governance and regional autonomy while maintaining national unity."
+      }
+    },
+    {
+      "title": "Constitutional Bodies",
+      "color": "#C9C9C9", 
+      "info": {
+        "description": "Constitutional bodies are independent entities established by the Constitution for specific functions.",
+        "keyPoints": [
+          "Election Commission of India",
+          "Union Public Service Commission",
+          "State Public Service Commissions",
+          "Comptroller and Auditor General",
+          "Finance Commission",
+          "National Commissions"
+        ],
+        "importance": "These bodies ensure fair and efficient functioning of various governmental processes."
+      }
+    },
+    {
+      "title": "Amendment Process",
+      "color": "#D2B48C", 
+      "info": {
+        "description": "The Constitution provides for its amendment to adapt to changing needs while preserving its basic structure.",
+        "keyPoints": [
+          "Article 368 deals with the amendment process",
+          "Three types of amendments",
+          "Simple majority",
+          "Special majority",
+          "Special majority with state ratification"
+        ],
+        "importance": "Ensures the Constitution remains relevant while protecting its core principles."
+      }
+    },
+    {
+      "title": "Citizenship",
+      "color": "#8A2BE2", 
+      "info": {
+        "description": "Citizenship defines the relationship between an individual and the state.",
+        "keyPoints": [
+          "Acquisition of citizenship",
+          "Methods of acquiring citizenship",
+          "Single citizenship concept",
+          "Rights and duties of citizens",
+          "Provisions for NRIs and OCIs"
+        ],
+        "importance": "Determines who can claim constitutional rights and protection under Indian law."
+      }
+    },
+    {
+      "title": "Emergency Provisions",
+      "color": "#B0C4DE", 
+      "info": {
+        "description": "Emergency provisions allow the government to handle exceptional situations effectively.",
+        "keyPoints": [
+          "National Emergency (Article 352)",
+          "State Emergency (Article 356)",
+          "Financial Emergency (Article 360)",
+          "Effects of emergency",
+          "Safeguards against misuse"
+        ],
+        "importance": "Provides mechanism to deal with extraordinary situations while protecting democratic values."
+      }
+    }
+  ]
+}

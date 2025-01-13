@@ -37,11 +37,12 @@
     top: 0;
     left: 0;
     pointer-events: none;
-    box-shadow: 0 0 20px 10px rgba(255, 255, 0, 0.8); 
-    background: rgba(255, 255, 0, 0.6);
-    z-index: -1; 
+    box-shadow: 0 0 50px 20px rgba(255, 215, 0, 0.7); /* Yellow outer glow */
+    background: rgba(255, 215, 0, 0.5); /* Light yellow metallic tint */
+    z-index: -1;
   }
-
+  
+  
   
   .heading {
     margin-left: 6vw;
@@ -197,7 +198,7 @@
   }
   .content-realted{
     font-family: 'Press Start 2P', cursive;
-    font-size: 16px;
+    font-size: 17px;
   }
   .info-key-points li:before {
     content: "•";
