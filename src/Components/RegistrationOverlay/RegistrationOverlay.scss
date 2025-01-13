@@ -1,0 +1,77 @@
+.registration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Darker background for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .overlay-content {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb); /* Neon Blue Gradient */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8); /* Retro-style deep shadow */
+    text-align: center;
+    width: 350px;
+    color: #f1f5f9; /* Light text for readability */
+    font-family: 'Press Start 2P', cursive; /* Retro gaming font */
+  }
+  
+  form input {
+    width: 90%;
+    margin: 15px 0;
+    padding: 12px;
+    border: 2px solid #facc15; /* Yellow border for retro look */
+    border-radius: 8px;
+    background-color: #000; /* Black input background */
+    color: #facc15; /* Yellow text */
+    font-family: 'Press Start 2P', cursive;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  form input:focus {
+    border-color: #f43f5e; /* Bright red when focused */
+  }
+  
+  form button {
+    margin: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  form button:first-of-type {
+    background: linear-gradient(135deg, #22c55e, #16a34a); /* Neon Green */
+    color: #000;
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.6);
+  }
+  
+  form button:last-of-type {
+    background: linear-gradient(135deg, #ef4444, #dc2626); /* Bright Red */
+    color: #000;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.6);
+  }
+  
+  form button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.8); /* Vibrant hover effect */
+  }
+  
+  h2 {
+    color: #facc15; /* Yellow heading */
+    text-shadow: 2px 2px 5px #000; /* Retro text shadow */
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+  
+  
