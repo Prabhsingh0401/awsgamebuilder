@@ -5,6 +5,7 @@
     padding: 20px;
     min-height: 100vh;
     background-color: #f0f0f0;
+    background-image: url('../../assets/img.jpg');
   }
   .question-list{
     font-size: 15px;
@@ -25,7 +26,7 @@
   
   .board-cell {
     aspect-ratio: 1;
-    background-color: #e0e0e0;
+    background-color:lightpink;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +44,9 @@
     background-color: #4CAF50;
     color: white;
   }
-  
+  .constitution-title{
+    color: white;
+  }
   .game-controls {
     margin-top: 20px;
     display: flex;
@@ -54,7 +57,7 @@
   .dice {
     width: 60px;
     height: 60px;
-    background-color: white;
+    background-color:pink;
     border: 2px solid #333;
     border-radius: 10px;
     display: flex;
@@ -67,6 +70,7 @@
   
   .dice:hover {
     transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.8);
   }
   
   button {
@@ -114,3 +118,16 @@
   .options button:hover {
     background-color: #1976D2;
   }
+  .roll:hover{
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.8);
+    background-color: purple;
+  }
+  .roll{
+    background-color:pink;
+    padding: 20px 70px;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    color:black;
+  }
+  
