@@ -1,61 +1,19 @@
-import { useState, useEffect } from "react";
-import "./Quiz.css";
+import React, { useState, useEffect } from "react";
+import { usePoints, PointsDisplay } from "../PointsDisplay/PointsDisplay";
+import quizData from "../../data/quizData.json";
+import "./Quiz.scss";
 
-const questions = [
-  {
-    question: "The Right to Freedom of Speech and Expression is mentioned under which Article?",
-    options: ["Article 18", "Article 19(1)(a)", "Article 21", "Article 22"],
-    correctAnswer: "Article 19(1)(a)",
-  },
-  {
-    question: "Which part of the Constitution deals with Fundamental Rights?",
-    options: ["Part I", "Part II", "Part III", "Part IV"],
-    correctAnswer: "Part III",
-  },
-  {
-    question: "Who is known as the Father of the Indian Constitution?",
-    options: ["Mahatma Gandhi", "Jawaharlal Nehru", "B. R. Ambedkar", "Sardar Patel"],
-    correctAnswer: "B. R. Ambedkar",
-  },
-  {
-    question: "Which Article of the Constitution deals with the Election Commission of India?",
-    options: ["Article 280", "Article 324", "Article 356", "Article 368"],
-    correctAnswer: "Article 324",
-  },
-  {
-    question: "Which is the longest written Constitution in the world?",
-    options: ["USA", "India", "Russia", "Brazil"],
-    correctAnswer: "India",
-  },
-  {
-    question: "Who is the first President of India?",
-    options: ["Jawaharlal Nehru", "Dr. Rajendra Prasad", "Dr. S. Radhakrishnan", "Dr. Zakir Husain"],
-    correctAnswer: "Dr. Rajendra Prasad",
-  },
-  {
-    question: "In which year did the Constitution of India come into effect?",
-    options: ["1947", "1950", "1949", "1952"],
-    correctAnswer: "1950",
-  },
-  {
-    question: "Which Article of the Indian Constitution gives the right to equality?",
-    options: ["Article 14", "Article 15", "Article 16", "Article 17"],
-    correctAnswer: "Article 14",
-  },
-  {
-    question: "Which is the last amendment of the Indian Constitution?",
-    options: ["104th", "105th", "106th", "110th"],
-    correctAnswer: "105th",
-  },
-];
-
-function App() {
+function Quiz() {
+  const { addPoints, subtractPoints, points, savePoints } = usePoints(); // Access savePoints
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [timeLeft, setTimeLeft] = useState(30);
   const [showRules, setShowRules] = useState(true);
+  const [leaderboard, setLeaderboard] = useState([]); // Initialize as an empty array
+
+  const questions = quizData.quiz.questions;
 
   useEffect(() => {
     if (!showRules && timeLeft > 0) {
@@ -69,11 +27,46 @@ function App() {
     }
   }, [timeLeft, showRules]);
 
+  useEffect(() => {
+    if (showScore) {
+      savePoints(points);
+      fetchLeaderboard(); // Fetch leaderboard data when quiz ends
+    }
+  }, [showScore, points, savePoints]);
+
+  const fetchLeaderboard = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/leaderboard");
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data); // Log the data to inspect its structure
+
+        // Check if the data has a leaderboard array and process it
+        if (Array.isArray(data.leaderboard)) {
+          const leaderboardData = data.leaderboard.map((user) => ({
+            ...user,
+            points: user.points || 0, // Default points to 0 if missing
+          }));
+          setLeaderboard(leaderboardData);
+        } else {
+          console.error("Leaderboard data is not in the expected format");
+        }
+      } else {
+        console.error("Failed to fetch leaderboard data");
+      }
+    } catch (error) {
+      console.error("Error fetching leaderboard:", error);
+    }
+  };
+
   const handleOptionClick = (option) => {
     setSelectedOption(option);
 
     if (option === questions[currentQuestionIndex].correctAnswer) {
       setScore(score + 1);
+      addPoints(10);
+    } else {
+      subtractPoints(2);
     }
 
     setTimeout(() => {
@@ -83,6 +76,7 @@ function App() {
   };
 
   const handleTimeout = () => {
+    subtractPoints(2);
     setTimeout(() => {
       loadNextQuestion();
     }, 1000);
@@ -104,19 +98,42 @@ function App() {
 
   return (
     <div className="main">
+      <PointsDisplay />
       <div className="container">
         {showRules ? (
           <div className="rules-container">
-            <h1 className="samvidhan">Samvidhan Showdown</h1>
-    
-        
+            <h1 className="samvidhan">{quizData.quiz.title}</h1>
             <button className="start-button" onClick={startQuiz}>
               Start Quiz
             </button>
           </div>
         ) : showScore ? (
           <div className="score-container">
-            <h2>Your Score: {score} / {questions.length}</h2>
+            <div className="leaderboard-container">
+              <h3>Leaderboard ✨</h3>
+              {leaderboard.length === 0 ? (
+                <p>No data available</p>
+              ) : (
+                <table className="leaderboard-table">
+                  <thead>
+                    <tr>
+                      <th>Rank 🏆</th>
+                      <th>Names 😀</th>
+                      <th>Points 🥇</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {leaderboard.map((user, index) => (
+                      <tr key={user.email}>
+                        <td>{index + 1}</td>
+                        <td>{user.name}</td>
+                        <td>{user.points}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
           </div>
         ) : (
           <div className="question-container">
@@ -148,4 +165,4 @@ function App() {
   );
 }
 
-export default App;
+export default Quiz;

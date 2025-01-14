@@ -3,15 +3,20 @@
 .flex-center {
     flex-direction: column;
     justify-content: center;
-    font-family: 'Arial', sans-serif;
     height: 110vh;
     background-image: url(/src/assets/SpinTheWheelBG.jpg);
-    margin-top: -5vh;
+    margin-top: -2vh;
     padding-top: 5vh;
+
+    @media screen and (max-width:768px) {
+      height: 200vh;
+      background-size: inherit;
+      background: linear-gradient(90deg, #63d3ff, #ffa931);
+    }
   }
   
   .topic {
-    font-size: 36px;
+    font-size: 20px;
     font-weight: bold;
     color: #333;
   }
@@ -20,6 +25,10 @@
     display: flex;
     align-items: center;
     width: auto;
+
+    @media screen and (max-width:768px) {
+      display: inline-block;
+    }
   }
   
   /* Wheel Container */
@@ -45,15 +54,19 @@
   
   
   .heading {
-    margin-left: 6vw;
-    font-family: Impact;
-    font-size: 3vw;
-    letter-spacing: 4px;
+    margin-left: 3vw;
+    font-size: 2.5vw;
     color: #000000dc;
     text-transform: uppercase;
     font-weight: 200;
     border-radius: 1.5rem;
     animation: flicker 1.5s infinite alternate;
+
+    @media screen and (max-width:768px) {
+      font-size: 10vw;
+      text-align: center;
+    }
+
   }
   
   @keyframes flicker {
@@ -77,6 +90,14 @@
   .svg-wheel {
     width: 470px;
     height: 470px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    margin-left: 2vw;
+
+    @media screen and (max-width:768px) {
+      width: 400px;
+      height: 400px;
+    }
   }
   
   .pointer {
@@ -86,6 +107,10 @@
     transform: translate(-90% , 285px);
     transform: rotate(180deg);
     z-index: 2;
+
+    @media screen and (max-width:768px) {
+      left: 45%;
+    }
   }
   
   .pointer-triangle {
@@ -107,6 +132,11 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
+
+    @media screen and (max-width:768px) {
+      margin-left: 130px;
+      margin-top: 10px;
+    }
   }
   
   .spin-button:hover {
@@ -123,19 +153,34 @@
   .result-container {
     text-align: center;
     margin-left: 20px;
-    font-family: 'Arial', sans-serif;
     width: 650px;
+
+    @media screen and (max-width:768px) {
+      width: 600px;
+      margin-top: 50vh;
+    }
   }
 
   .result{
     margin-left: 30vw;
+
+    @media screen and (max-width:768px) {
+      margin-left: -30vw;
+    }
   }
   
   .result-title {
-    font-size: 24px;
-    margin-top: -43vh;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: -30vh;
     color: #ffffff;
+
+    @media screen and (max-width:768px) {
+      font-size: 20px;
+    }
+    @media screen and (max-width:768px) {
+      margin-left: -20vw;
+    }
+
   }
   
   .selected-option {
@@ -143,6 +188,10 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+
+    @media screen and (max-width:768px) {
+      margin-left: -20vw;
+    }
   }
   
   .color-box {
@@ -152,8 +201,11 @@
   }
   
   .selected-title {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 15px;
+
+    @media screen and (max-width:768px) {
+      font-size: 15px;
+    }
   }
   
   text {
@@ -164,11 +216,15 @@
     position: absolute;
     padding: 2rem;
     text-align: left;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     margin-left: 10vw;
-    font-size: 17px;
+    font-size: 12px;
     color:white;
+    z-index: 1;
+
+    @media screen and (max-width:768px) {
+      margin-left: 1vw;
+    }
   }
 
   .info-description, .info-key-points, .info-importance {
@@ -198,7 +254,7 @@
   }
   .content-realted{
     font-family: 'Press Start 2P', cursive;
-    font-size: 17px;
+    font-size: 13px;
   }
   .info-key-points li:before {
     content: "•";
@@ -209,4 +265,8 @@
 
   .topic-information p {
     line-height: 1.6;
+  }
+
+  .complete-button{
+    margin-left: 11vw;
   }

@@ -1,25 +1,30 @@
 import React, { useState, useRef } from "react";
-import "./Spinthewheel.css";
+import { usePoints } from "../PointsDisplay/PointsDisplay";
+import { PointsDisplay } from "../PointsDisplay/PointsDisplay";
+import "./Spinthewheel.scss";
 import wheelData from '../../data/wheeldata.json'
  
 const SpinningWheel = () => {
+  const { addPoints } = usePoints();
   const [rotation, setRotation] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null); 
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [isCompleted, setIsCompleted] = useState(false);
   const wheelRef = useRef(null);
-  const audioRef = useRef(null); // Add audio reference
+  const audioRef = useRef(null);
+
+  const handleCompletion = () => {
+    if (!isCompleted) {
+      addPoints(5);
+      setIsCompleted(true);
+    }
+  };
 
   const segments = wheelData.segments;
-
-  // Create audio element when component mounts
   React.useEffect(() => {
     audioRef.current=new Audio('../../../public/sounds/spin-sound.mp4') // Changed to MP4
-    
-    // Optional: Preload the audio
-    audioRef.current.preload = 'auto';
-    
-    // Cleanup on component unmount
-    return () => {
+        audioRef.current.preload = 'auto';
+        return () => {
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current = null;
@@ -31,13 +36,10 @@ const SpinningWheel = () => {
     if (!isSpinning) {
       setIsSpinning(true);
       setSelectedOption(null); 
-
-      // Play the MP4 audio with error handling and replay preparation
       if (audioRef.current) {
         audioRef.current.currentTime = 0; // Reset audio to start
         audioRef.current.play().catch(error => {
           console.error("Audio play error:", error);
-          // Handle any autoplay restrictions or errors here
         });
       }
 
@@ -59,7 +61,6 @@ const SpinningWheel = () => {
         setSelectedOption(segments[selectedIndex]);
         setIsSpinning(false);
         
-        // Optional: Stop audio when spin completes
         if (audioRef.current) {
           audioRef.current.pause();
           audioRef.current.currentTime = 0;
@@ -85,7 +86,8 @@ const SpinningWheel = () => {
 
   return (
     <div className="flex-center">
-      <h1 className="heading">Spin the Wheel</h1>
+      <PointsDisplay></PointsDisplay>
+      <h1 className="heading">Constitution Roulette</h1>
       <div className="wheel-layout">
         <div className="wheel-container">
           <div className="outer-glow" />
@@ -150,6 +152,13 @@ const SpinningWheel = () => {
           >
             {isSpinning ? "..." : "SPIN!"}
           </button>
+          <button
+              onClick={handleCompletion}
+              disabled={isCompleted}
+              className="complete-button"
+            >
+              {isCompleted ? 'Completed!' : 'Mark as Complete'}
+            </button>
         </div>
         {selectedOption && (
         <div className="result-container">

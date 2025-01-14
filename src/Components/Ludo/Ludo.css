@@ -6,7 +6,10 @@
     min-height: 100vh;
     background-color: #f0f0f0;
     background-image: url('../../assets/img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
+  
   .question-list{
     font-size: 15px;
     font-weight: 400;
@@ -93,13 +96,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.925);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
     z-index: 1000;
-    width: 90%;
-    max-width: 500px;
+    width: 50vw;
   }
   
   .options {
@@ -112,11 +114,13 @@
   .options button {
     width: 100%;
     padding: 15px;
-    background-color: #2196F3;
+    background-color: #662869;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
   }
   
   .options button:hover {
-    background-color: #1976D2;
+    background-color: #662869;
   }
   .roll:hover{
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.8);

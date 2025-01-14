@@ -36,11 +36,23 @@ html {
 }
 
 
+#score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  z-index: 1000;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+
 .dialog-box {
-  position: fixed; /* Fix the position to the viewport */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Offset to perfectly center */
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
   text-align: center;
   padding: 10px 15px;
   background: rgba(0, 0, 0, 0.8); 
@@ -50,14 +62,14 @@ html {
   border-radius: 5px;
   border: 2px solid #ffd700; 
   animation: fadeInOut 1s linear;
-  max-width: 90%; /* Adjust for smaller screens */
+  max-width: 90%; 
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   z-index: 1000; 
 }
 
 @media screen and (max-width: 768px) {
   .dialog-box {
-    font-size: 18px; /* Reduce font size on smaller screens */
+    font-size: 18px; 
   }
 }
 

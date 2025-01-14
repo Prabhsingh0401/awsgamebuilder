@@ -1,0 +1,53 @@
+{
+    "quiz": {
+      "title": "Samvidhan Showdown",
+      "questions": [
+        {
+          "question": "The Right to Freedom of Speech and Expression is mentioned under which Article?",
+          "options": ["Article 18", "Article 19(1)(a)", "Article 21", "Article 22"],
+          "correctAnswer": "Article 19(1)(a)"
+        },
+        {
+          "question": "Which part of the Constitution deals with Fundamental Rights?",
+          "options": ["Part I", "Part II", "Part III", "Part IV"],
+          "correctAnswer": "Part III"
+        },
+        {
+          "question": "Who is known as the Father of the Indian Constitution?",
+          "options": ["Mahatma Gandhi", "Jawaharlal Nehru", "B. R. Ambedkar", "Sardar Patel"],
+          "correctAnswer": "B. R. Ambedkar"
+        },
+        {
+          "question": "Which Article of the Constitution deals with the Election Commission of India?",
+          "options": ["Article 280", "Article 324", "Article 356", "Article 368"],
+          "correctAnswer": "Article 324"
+        },
+        {
+          "question": "Which is the longest written Constitution in the world?",
+          "options": ["USA", "India", "Russia", "Brazil"],
+          "correctAnswer": "India"
+        },
+        {
+          "question": "Who is the first President of India?",
+          "options": ["Jawaharlal Nehru", "Dr. Rajendra Prasad", "Dr. S. Radhakrishnan", "Dr. Zakir Husain"],
+          "correctAnswer": "Dr. Rajendra Prasad"
+        },
+        {
+          "question": "In which year did the Constitution of India come into effect?",
+          "options": ["1947", "1950", "1949", "1952"],
+          "correctAnswer": "1950"
+        },
+        {
+          "question": "Which Article of the Indian Constitution gives the right to equality?",
+          "options": ["Article 14", "Article 15", "Article 16", "Article 17"],
+          "correctAnswer": "Article 14"
+        },
+        {
+          "question": "Which is the last amendment of the Indian Constitution?",
+          "options": ["104th", "105th", "106th", "110th"],
+          "correctAnswer": "105th"
+        }
+      ]
+    }
+  }
+  

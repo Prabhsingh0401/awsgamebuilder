@@ -1,13 +1,19 @@
 .Home{
 
-
+    .ParentDiv2{
+     position: relative;
+    }
 
     .ParentDiv{
 
         display: flex;
-        position: absolute;
         width: 120vw;
-        margin-left: -8vw;
+        margin-left: -5vw;
+
+        @media screen and (max-width:768px){
+          display: inline-block;
+          margin-left: -2vw;
+        }
 
         .child1 {
             width: 100vw;
@@ -19,6 +25,12 @@
           
             &:hover {
               transform: scale(1.05); // Slightly enlarge the div on hover
+            }
+
+            @media screen and (max-width:768px) {
+              height: 33vh;
+              background-size: inherit;
+              padding-right: -100vw;
             }
           }
 
@@ -33,6 +45,11 @@
             &:hover {
               transform: scale(1.05); // Slightly enlarge the div on hover
             } 
+
+            @media screen and (max-width:768px) {
+              height: 33vh;
+              background-size: inherit;
+            }
             }
 
         .child3{
@@ -46,6 +63,12 @@
             &:hover {
               transform: scale(1.05); // Slightly enlarge the div on hover
             } 
+
+            @media screen and (max-width:768px) {
+              height: 33vh;
+              background-size: inherit;
+              padding-left: 30vw;
+            }
         }
     }
 }

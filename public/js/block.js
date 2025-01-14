@@ -113,7 +113,6 @@ var dialog = {
       dialogBox.innerText = text;
       dialogBox.className = "dialog-box";
 
-      // Position the dialog box in the center of viewport
       dialogBox.style.position = "fixed"; // Changed from absolute to fixed
       dialogBox.style.left = "50%";
       dialogBox.style.top = "20%";
@@ -125,11 +124,8 @@ var dialog = {
       dialogBox.style.zIndex = "1000";
       dialogBox.style.maxWidth = "300px";
       dialogBox.style.textAlign = "center";
-
-      // Append to the body instead of game container for viewport-relative positioning
       document.body.appendChild(dialogBox);
 
-      // Remove dialog after the duration
       setTimeout(function () {
           document.body.removeChild(dialogBox);
       }, options.duration);

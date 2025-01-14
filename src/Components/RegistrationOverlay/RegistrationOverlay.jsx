@@ -11,7 +11,7 @@ function RegistrationOverlay({ onRegister, onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const response = await fetch('http://localhost:5000/register', {
         method: 'POST',
@@ -20,11 +20,15 @@ function RegistrationOverlay({ onRegister, onClose }) {
         },
         body: JSON.stringify(formData),
       });
-  
+
       const data = await response.json();
       if (response.ok) {
-        alert('User registered successfully!');
-        onRegister(formData); // Optionally handle post-registration logic
+        if (data.message === 'User already registered') {
+          alert('User already exists. Points will be displayed.');
+        } else {
+          alert(data.message);
+        }
+        onRegister(data.user); // Pass the registered user data, including name, to the parent
       } else {
         alert(`Error: ${data.error}`);
       }
@@ -33,7 +37,6 @@ function RegistrationOverlay({ onRegister, onClose }) {
       alert('An error occurred. Please try again.');
     }
   };
-  
 
   return (
     <div className="registration-overlay">
@@ -49,7 +52,7 @@ function RegistrationOverlay({ onRegister, onClose }) {
             required
           />
           <input
-            type="text"
+            type="number"
             name="age"
             placeholder="Age"
             value={formData.age}
@@ -65,7 +68,9 @@ function RegistrationOverlay({ onRegister, onClose }) {
             required
           />
           <button type="submit">Start Game</button>
-          <button type="button" onClick={onClose}>Cancel</button>
+          <button type="button" onClick={onClose}>
+            Cancel
+          </button>
         </form>
       </div>
     </div>

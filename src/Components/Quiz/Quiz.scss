@@ -19,6 +19,7 @@
     height:510px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     border: 5px solid #333;
+    margin-top: 50px;
   }
   @media screen and (max-width:768px){
     .container{
@@ -201,6 +202,16 @@
   
   .start-button:hover:not(:disabled) {
     background-color: #0056b3;
+    color: #ccc;
+  }
+
+  .score-container{
+    h2{
+      font-size: 40px;
+      color: white;
+      text-align: center;
+      margin-top: 15vw;
+    }
   }
   
   /* Leaderboard section styling */
@@ -308,3 +319,25 @@
     font-family: 'Press Start 2P', cursive;
   }
   } 
+
+  .leaderboard-container {
+    margin-top: 20px;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  .leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 10px;
+    text-align: center;
+    border: 3px solid #ffffff;
+  }
+  
+  .leaderboard-table th {
+    background-color: #f4f4f400;
+  }
+  

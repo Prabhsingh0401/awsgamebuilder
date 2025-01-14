@@ -11,6 +11,9 @@ var requestAnimFrame = (function(){
 
 var dialog;
 
+let score = 0;
+const COIN_POINTS = 10;
+
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext('2d');
 
@@ -22,8 +25,8 @@ var fireballs = [];
 var player = new Mario.Player([0,0]);
 
 canvas.width = 1750;
-canvas.height = 790;
-ctx.scale(3,3.2);
+canvas.height = 750;
+ctx.scale(3,3);
 document.body.appendChild(canvas);
 
 var vX = 0,
@@ -69,7 +72,6 @@ function init() {
     stomp: new Audio('sounds/stomp.wav')
   };
 
-  dialog = new Mario.Dialog();
 
   Mario.oneone();
   lastTime = Date.now();
@@ -127,7 +129,6 @@ function handleInput(dt) {
   }
 }
 
-// Input handler
 var input = {
   pressedKeys: {},
   
@@ -366,8 +367,11 @@ function checkCollisions() {
 
   level.items.forEach(function(item) {
     item.checkCollisions();
-  });
-  
+    // If this is a coin and it's being collected, call updateScore
+    if (item.isCoin && item.isCollected) {  // adjust these property names based on your implementation
+        updateScore();
+    }
+});
   level.enemies.forEach(function(ent) {
     ent.checkCollisions();
   });
@@ -420,7 +424,6 @@ function render() {
     }
   }
 
-  // Render player
   if (player.invincibility % 2 === 0) {
     renderEntity(player);
   }
@@ -494,6 +497,30 @@ function addTouchControls() {
   touchControls.appendChild(jumpBtn);
 
   document.body.appendChild(touchControls);
+}
+
+function addScoreDisplay() {
+  const scoreDisplay = document.createElement('div');
+  scoreDisplay.id = 'score';
+  scoreDisplay.textContent = 'Score: 0';
+  scoreDisplay.style.position = 'fixed';
+  scoreDisplay.style.top = '20px';
+  scoreDisplay.style.left = '20px';
+  scoreDisplay.style.color = '#fff';
+  scoreDisplay.style.fontSize = '24px';
+  scoreDisplay.style.fontWeight = 'bold';
+  scoreDisplay.style.textShadow = '2px 2px 4px rgba(0,0,0,0.5)';
+  scoreDisplay.style.zIndex = '1000';
+  document.body.appendChild(scoreDisplay);
+}
+
+  
+function updateScore() {
+  score += COIN_POINTS;
+  const scoreDisplay = document.getElementById('score');
+  if (scoreDisplay) {
+      scoreDisplay.textContent = `Score: ${score}`;
+  }
 }
 
 function createTouchButton(text) {

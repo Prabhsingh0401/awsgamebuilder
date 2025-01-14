@@ -7,44 +7,54 @@ import Mario from './Components/Mario/Mario';
 import Home from './Components/Home/Home';
 import RegistrationOverlay from './Components/RegistrationOverlay/RegistrationOverlay';
 import Ludo from './Components/Ludo/Ludo';
+import { PointsProvider } from './Components/PointsDisplay/PointsDisplay';
 import Detective from './Components/Detective/Detective';
+
 function App() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [redirectPath, setRedirectPath] = useState('/');
+  const [registeredUser, setRegisteredUser] = useState(null); // Store registered user data
   const navigate = useNavigate();
 
   const handlePlayGame = (path) => {
     setRedirectPath(path); // Set the path of the game to redirect after registration
-    setShowOverlay(true); // Show the registration overlay
+    if (!registeredUser) {
+      setShowOverlay(true); // Show the registration overlay if no user is registered
+    } else {
+      navigate(path); // Directly navigate if the user is already registered
+    }
   };
 
-  const handleRegister = (formData) => {
-    console.log('User Registered:', formData); // Handle user registration (e.g., save to a database)
-    setShowOverlay(false);
-    navigate(redirectPath); // Redirect to the selected game after registration
+  const handleRegister = (user) => {
+    console.log('User Registered:', user); // Log registered user data
+    setRegisteredUser(user); // Save user data to state
+    setShowOverlay(false); // Hide the registration overlay
+    navigate(redirectPath); // Redirect to the selected game
   };
 
   const handleCloseOverlay = () => {
-    setShowOverlay(false);
+    setShowOverlay(false); // Close registration overlay without registering
   };
 
   return (
-    <div className="App">
-      {showOverlay && (
-        <RegistrationOverlay
-          onRegister={handleRegister}
-          onClose={handleCloseOverlay}
-        />
-      )}
-      <Routes>
-        <Route path="/" element={<Home onPlayGame={handlePlayGame} />} />
-        <Route path="/SpinTheWheel" element={<Spinthewheel />} />
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="/mario" element={<Mario />} />
-        <Route path="/ludo" element={<Ludo />} />
-        <Route path="/detective" element={<Detective />} />
-      </Routes>
-    </div>
+    <PointsProvider user={registeredUser}>
+      <div className="App">
+        {showOverlay && (
+          <RegistrationOverlay
+            onRegister={handleRegister}
+            onClose={handleCloseOverlay}
+          />
+        )}
+        <Routes>
+          <Route path="/" element={<Home onPlayGame={handlePlayGame} />} />
+          <Route path="/SpinTheWheel" element={<Spinthewheel />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/mario" element={<Mario />} />
+          <Route path="/ludo" element={<Ludo />} />
+          <Route path="/detective" element={<Detective />} />
+        </Routes>
+      </div>
+    </PointsProvider>
   );
 }
 
