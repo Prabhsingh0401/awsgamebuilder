@@ -1,29 +1,19 @@
 .detective-game {
-    max-width: 1200px;
     position: relative;
-    isolation: isolate;
-    margin: 0 auto;
     padding: 20px;
-    padding-right: 220px;
-    font-family: 'Arial', sans-serif;
     min-height: 600px;
-    background: linear-gradient(to bottom, #f0f2f5, #e2e6ea);
-    border-radius: 15px;
+    background: linear-gradient(to bottom, #83b4ff, #e2e6ea);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .case-container {
     width: 100%;
-    min-height: 400px;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
     margin: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
-    z-index: 5;
     pointer-events: all;
 }
 
@@ -37,7 +27,6 @@
 .evidence-panel {
     position: relative;
     z-index: 5;
-    background-color: #fff;
     padding: 15px;
     border-radius: 8px;
     margin: 20px 0;
@@ -55,7 +44,6 @@
     pointer-events: all;
     padding: 10px;
     margin: 5px 0;
-    background-color: #f0f3f6;
     border-radius: 5px;
 }
 
@@ -102,7 +90,6 @@
     bottom: 100%;
     right: 0;
     transform: translateY(-10px);
-    background: white;
     padding: 15px;
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -123,11 +110,11 @@
     align-items: center;
     margin-bottom: 30px;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     z-index: 5;
     position: relative;
     pointer-events: all;
+    width: 114%;
 }
 
 .score {
@@ -156,6 +143,7 @@
     font-size: 16px;
     transition: all 0.3s ease;
     pointer-events: all !important;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .tool-button:hover:not(:disabled) {
@@ -164,14 +152,12 @@
 }
 
 .tool-button:disabled {
-    background-color: #cccccc;
     cursor: not-allowed;
 }
 
 .choices-panel {
     margin: 25px 0;
     padding: 20px;
-    background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -188,7 +174,7 @@
 
 .choice-button {
     padding: 15px 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0);
     border: 2px solid #2196F3;
     border-radius: 8px;
     color: #2196F3;
@@ -199,6 +185,7 @@
     width: 100%;
     position: relative;
     pointer-events: all !important;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .choice-button:hover {
@@ -220,8 +207,8 @@
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
-    z-index: 5;
     pointer-events: all !important;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .next-case-button:hover {

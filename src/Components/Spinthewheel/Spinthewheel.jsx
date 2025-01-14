@@ -22,7 +22,7 @@ const SpinningWheel = () => {
 
   const segments = wheelData.segments;
   React.useEffect(() => {
-    audioRef.current=new Audio('../../../public/sounds/spin-sound.mp4') // Changed to MP4
+    audioRef.current=new Audio('/spin-sound.mp4') // Changed to MP4
         audioRef.current.preload = 'auto';
         return () => {
       if (audioRef.current) {

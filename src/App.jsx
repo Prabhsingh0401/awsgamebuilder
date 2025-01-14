@@ -13,27 +13,27 @@ import Detective from './Components/Detective/Detective';
 function App() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [redirectPath, setRedirectPath] = useState('/');
-  const [registeredUser, setRegisteredUser] = useState(null); // Store registered user data
+  const [registeredUser, setRegisteredUser] = useState(null);
   const navigate = useNavigate();
 
   const handlePlayGame = (path) => {
-    setRedirectPath(path); // Set the path of the game to redirect after registration
+    setRedirectPath(path); 
     if (!registeredUser) {
-      setShowOverlay(true); // Show the registration overlay if no user is registered
+      setShowOverlay(true); 
     } else {
-      navigate(path); // Directly navigate if the user is already registered
+      navigate(path); 
     }
   };
 
   const handleRegister = (user) => {
-    console.log('User Registered:', user); // Log registered user data
-    setRegisteredUser(user); // Save user data to state
-    setShowOverlay(false); // Hide the registration overlay
-    navigate(redirectPath); // Redirect to the selected game
+    console.log('User Registered:', user); 
+    setRegisteredUser(user); 
+    setShowOverlay(false); 
+    navigate(redirectPath);
   };
 
   const handleCloseOverlay = () => {
-    setShowOverlay(false); // Close registration overlay without registering
+    setShowOverlay(false); 
   };
 
   return (
