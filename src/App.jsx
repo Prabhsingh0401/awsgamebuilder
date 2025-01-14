@@ -7,6 +7,7 @@ import Mario from './Components/Mario/Mario';
 import Home from './Components/Home/Home';
 import RegistrationOverlay from './Components/RegistrationOverlay/RegistrationOverlay';
 import Ludo from './Components/Ludo/Ludo';
+import Detective from './Components/Detective/Detective';
 function App() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [redirectPath, setRedirectPath] = useState('/');
@@ -41,6 +42,7 @@ function App() {
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/mario" element={<Mario />} />
         <Route path="/ludo" element={<Ludo />} />
+        <Route path="/detective" element={<Detective />} />
       </Routes>
     </div>
   );
