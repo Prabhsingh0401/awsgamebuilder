@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './RegistrationOverlay.scss';
 
+
+
 function RegistrationOverlay({ onRegister, onClose }) {
   const [formData, setFormData] = useState({ name: '', age: '', email: '' });
 

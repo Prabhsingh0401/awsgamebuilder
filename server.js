@@ -1,16 +1,21 @@
 import AWS from 'aws-sdk';
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config(); // Load environment variables from the .env file
 
 const app = express();
-app.use(express.json());
-app.use(cors());
 
-// Configure AWS
+// Middleware
+app.use(express.json());
+app.use(cors()); // Allow requests from all origins
+
+// AWS Configuration using server-side environment variables
 AWS.config.update({
-  region: '',
-  accessKeyId: '',
-  secretAccessKey: '',
+  region: process.env.AWS_REGION,
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
@@ -25,7 +30,6 @@ app.post('/register', async (req, res) => {
   }
 
   try {
-    // Check if user exists
     const existingUser = await dynamoDb
       .get({
         TableName: TABLE_NAME,
@@ -42,15 +46,9 @@ app.post('/register', async (req, res) => {
       });
     }
 
-    // Create a new user
     const params = {
       TableName: TABLE_NAME,
-      Item: {
-        email,
-        name,
-        age,
-        points: 0, // Start with 0 points
-      },
+      Item: { email, name, age, points: 0 },
     };
 
     await dynamoDb.put(params).promise();
@@ -77,9 +75,7 @@ app.put('/update-points', async (req, res) => {
       TableName: TABLE_NAME,
       Key: { email },
       UpdateExpression: 'set points = :points',
-      ExpressionAttributeValues: {
-        ':points': points,
-      },
+      ExpressionAttributeValues: { ':points': points },
       ReturnValues: 'UPDATED_NEW',
     };
 
@@ -94,15 +90,12 @@ app.put('/update-points', async (req, res) => {
   }
 });
 
-// Get leaderboard - Fetch all users and sort by points
+// Get leaderboard
 app.get('/leaderboard', async (req, res) => {
   try {
-    const params = {
-      TableName: TABLE_NAME,
-    };
-
+    const params = { TableName: TABLE_NAME };
     const result = await dynamoDb.scan(params).promise();
-    const leaderboard = result.Items.sort((a, b) => b.points - a.points); // Sort by points in descending order
+    const leaderboard = result.Items.sort((a, b) => b.points - a.points);
 
     res.status(200).json({
       message: 'Leaderboard fetched successfully!',
@@ -114,5 +107,6 @@ app.get('/leaderboard', async (req, res) => {
   }
 });
 
-const PORT = 5000;
+// Start server
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
