@@ -12,10 +12,6 @@ const Home = ({ onPlayGame }) => {
         <div className="Home">
             {overlayVisible && (
                 <div className='overlay-home' onClick={handleOverlayClick}>
-                    {/* <h1>Constitutional Explorer
-                        <br></br><br></br><br></br>
-                        Click anywhere to start
-                    </h1> */}
                 </div>
             )}
             <div className="ParentDiv">

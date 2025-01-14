@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Ludo.css';
 import constitutionalQuestions from '../../data/LudoQuesitons.json';
+import { PointsDisplay } from '../PointsDisplay/PointsDisplay';
 
 const ConstitutionalLudo = () => {
   const [diceNumber, setDiceNumber] = useState(1);
@@ -34,6 +35,7 @@ const ConstitutionalLudo = () => {
 
   return (
     <div className="constitutional-ludo">
+      <PointsDisplay></PointsDisplay>
       <h1 className='constitution-title'>Constitutional Ludo</h1>
       
       <audio ref={audioRef} src="/Joshua McLean - Mountain Trials  NO COPYRIGHT 8-bit Music.mp3" loop />
