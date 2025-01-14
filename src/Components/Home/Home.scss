@@ -1,7 +1,10 @@
 .Home{
 
   .overlay-home {
-    background-color: rgba(0, 0, 0, 0.932);
+    background-image: url(../../assets/Background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     height: 200vh; /* Cover the full screen height */
     width: 100vw; /* Cover the full screen width */
     z-index: 999; /* Ensure it's on top */
